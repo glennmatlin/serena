@@ -57,8 +57,10 @@ Some languages require additional installations or setup steps, as noted.
 * **Java**  
 * **JavaScript**
 * **Julia**
-* **Kotlin**  
+* **Kotlin**
   (uses the pre-alpha [official kotlin LS](https://github.com/Kotlin/kotlin-lsp), some issues may appear)
+* **LaTeX**
+  (uses [texlab](https://github.com/latex-lsp/texlab); must explicitly enable language `latex`; supports .tex, .bib, .cls, and .sty files)
 * **Lua**
 * **Markdown**  
   (must explicitly enable language `markdown`, primarily useful for documentation-heavy projects)

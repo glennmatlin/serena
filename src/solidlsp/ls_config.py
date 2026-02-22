@@ -110,6 +110,11 @@ class Language(str, Enum):
     Supports .sv, .svh, .v, .vh files.
     Automatically downloads verible binary.
     """
+    LATEX = "latex"
+    """texlab language server for LaTeX.
+    Supports document symbols, completion, references, definition, and formatting.
+    Must be explicitly specified as the main language, not auto-detected.
+    """
 
     @classmethod
     def iter_all(cls, include_experimental: bool = False) -> Iterable[Self]:
@@ -134,6 +139,7 @@ class Language(str, Enum):
             self.MARKDOWN,
             self.YAML,
             self.TOML,
+            self.LATEX,
             self.GROOVY,
             self.CPP_CCLS,
         }
@@ -210,6 +216,8 @@ class Language(str, Enum):
                 return FilenameMatcher("*.yaml", "*.yml")
             case self.TOML:
                 return FilenameMatcher("*.toml")
+            case self.LATEX:
+                return FilenameMatcher("*.tex", "*.bib", "*.cls", "*.sty")
             case self.ZIG:
                 return FilenameMatcher("*.zig", "*.zon")
             case self.LUA:
@@ -366,6 +374,10 @@ class Language(str, Enum):
                 from solidlsp.language_servers.taplo_server import TaploServer
 
                 return TaploServer
+            case self.LATEX:
+                from solidlsp.language_servers.texlab import Texlab
+
+                return Texlab
             case self.ZIG:
                 from solidlsp.language_servers.zls import ZigLanguageServer
 

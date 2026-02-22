@@ -1,0 +1,45 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{custom}
+
+\title{Test Document}
+\author{Author}
+\date{\today}
+
+\newcommand{\mycmd}[1]{\textbf{#1}}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}\label{sec:intro}
+
+This is the introduction. We reference Section~\ref{sec:methods} and cite \cite{knuth1984}.
+
+\subsection{Background}
+
+Some background material with a custom command: \mycmd{important}.
+
+\section{Methods}\label{sec:methods}
+
+The methods section describes the approach.
+
+\begin{equation}\label{eq:example}
+    E = mc^2
+\end{equation}
+
+See Equation~\eqref{eq:example}.
+
+\section{Results}\label{sec:results}
+
+Results are presented here.
+
+\section{Conclusion}\label{sec:conclusion}
+
+We conclude the paper.
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\end{document}
